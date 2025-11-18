@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "MILC",
+  "version": "0.1",
+  "permissions": ["cookies", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": { "default_popup": "popup.html"},
+  "background": { "service_worker": "background.js" }
+}
