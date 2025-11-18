@@ -3,7 +3,7 @@ async function getActiveTab() {
   return tabs[0];
 }
 
-function prettyExpire(c) {
+function formatExpireDate(c) {
   if (c.session)
     return 'session';
   if (!c.expirationDate)
@@ -39,12 +39,7 @@ function renderCookies(cookies, hostname) {
   const hostname = url.hostname;
   document.getElementById('site').textContent = hostname;
 
-  // Option A: ask cookies for this domain
   chrome.cookies.getAll({domain: hostname}, cookies => {
-    // If cookies API fails because host permission missing, cookies is empty
     renderCookies(cookies, hostname);
   });
-
-  // Option B (more precise): you can also fetch cookie stores
-  // chrome.cookies.getAllCookieStores(storeList => { ... })
 })();
