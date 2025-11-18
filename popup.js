@@ -23,7 +23,7 @@ function renderCookies(cookies, hostname) {
     element.className = 'cookie';
     element.innerHTML = `
       <div><strong>${c.name}</strong> — <code style="word-break:break-all">${c.value}</code></div>
-      <div class="meta">${c.domain} ${c.path} • Expires: ${prettyExpire(c)} • ${c.httpOnly? 'HttpOnly':''} ${c.secure? 'Secure':''} ${c.sameSite||''}</div>
+      <div class="meta">${c.domain} ${c.path} • Expires: ${formatExpireDate(c)} • ${c.httpOnly? 'HttpOnly':''} ${c.secure? 'Secure':''} ${c.sameSite||''}</div>
     `;
     list.appendChild(element);
   });
