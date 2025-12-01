@@ -90,7 +90,7 @@ input {
     padding-left: 0;
     margin-top: 5px;
     height: 395px; 
-    overflow-y: auto;
+    overflow: auto;
     flex-grow: 1;   
 }
 
@@ -101,13 +101,6 @@ input {
     margin-bottom: 6px;
     border: 1px solid #d5ddff;
     font-size: 0.9rem;
-}
-
-.cookies-scroll {
-    flex: 1;                /* takes remaining space */
-    overflow-y: auto;
-    margin-top: 10px;
-    padding-right: 4px;     /* prevent scrollbar overlap */
 }
 
 
