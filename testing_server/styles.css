@@ -27,10 +27,11 @@ h1 {
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-    min-height: 200px;
 
+    height: 395px;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;      
+    flex-direction: column;     
 }
 
 .box h2 {
@@ -100,6 +101,13 @@ input {
     margin-bottom: 6px;
     border: 1px solid #d5ddff;
     font-size: 0.9rem;
+}
+
+.cookies-scroll {
+    flex: 1;                /* takes remaining space */
+    overflow-y: auto;
+    margin-top: 10px;
+    padding-right: 4px;     /* prevent scrollbar overlap */
 }
 
 
