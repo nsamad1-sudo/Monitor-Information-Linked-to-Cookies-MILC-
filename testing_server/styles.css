@@ -1,24 +1,100 @@
 body {
-    font-family: serif;
-    margin: 50px;
+    font-family: Arial, sans-serif;
+    background: #f2f7ff;
+    margin: 0;
+    padding: 15px;
+    color: #333;
 }
 
 h1 {
-    font-size: 40px;
+    text-align: center;
+    font-size: 1.9rem;
     margin-bottom: 20px;
 }
 
-button {
-    padding: 8px 14px;
-    border: 1px solid #aaa;
-    background: #f5f5f5;
+.container {
+    max-width: 900px;
+    margin: auto;
+
+    /* 3 cards side-by-side if wide enough */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.box {
+    background: white;
+    padding: 15px;            /* reduced */
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    min-height: 200px;        /* keeps boxes even */
+}
+
+.box h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d9e3ff;
+    padding-bottom: 6px;
+}
+
+
+label {
+    font-weight: bold;
+    margin-top: 6px;
+    display: block;
+    font-size: 0.9rem;
+}
+
+input {
+    width: 95%;
+    padding: 7px;
+    margin: 5px 0 10px 0;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+}
+
+.btn {
+    padding: 10px 12px; 
+    border-radius: 6px;
+    font-size: 0.95rem;
     cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+.btn.primary {
+    background-color: #4a7cff;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #335fdd;
+}
+
+.btn.danger {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.btn.danger:hover {
+    background-color: #d93636;
 }
 
 #cookieList {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background: #fafafa;
-    max-width: 400px;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 5px;
 }
+
+#cookieList li {
+    background: #eef3ff;
+    padding: 7px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    border: 1px solid #d5ddff;
+    font-size: 0.9rem;
+}
+
+
+

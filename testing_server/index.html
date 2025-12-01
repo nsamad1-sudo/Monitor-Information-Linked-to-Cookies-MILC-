@@ -11,28 +11,34 @@
 <body>
     <h1>Cookie Testing</h1>
 
-    <section>
-        <h2>Add/Modify Cookie</h2>
-        <label for="cookieName">Name:</label>
-        <input type="text" id="cookieName" placeholder="Cookie Name"><br><br>
-        <label for="cookieValue">Value:</label>
-        <input type="text" id="cookieValue" placeholder="Cookie Value"><br><br>
-        <label for="cookieExpiry">Expiry (days):</label>
-        <input type="number" id="cookieExpiry" value="7"><br><br>
-        <button onclick="addOrModifyCookie()">Set Cookie</button>
-    </section>
+    <div class="container">
+        <section class="box">
+            <h2>Add/Modify Cookie</h2>
+            <label for="cookieName">Name:</label>
+            <input type="text" id="cookieName" placeholder="Cookie Name"><br><br>
 
-    <section>
-        <h2>Delete Cookie</h2>
-        <label for="deleteCookieName">Name:</label>
-        <input type="text" id="deleteCookieName" placeholder="Cookie Name"><br><br>
-        <button onclick="deleteCookie()">Delete Cookie</button>
-    </section>
+            <label for="cookieValue">Value:</label>
+            <input type="text" id="cookieValue" placeholder="Cookie Value"><br><br>
 
-    <section>
-        <h2>Current Cookies</h2>
-        <ul id="cookieList"></ul>
-    </section>
+            <label for="cookieExpiry">Expiry (days):</label>
+            <input type="number" id="cookieExpiry" placeholder="7"><br><br>
+
+            <button class="btn primary" onclick="addOrModifyCookie()">Set Cookie</button>
+        </section>
+
+        <section class="box">
+            <h2>Delete Cookie</h2>
+            <label for="deleteCookieName">Name:</label>
+            <input type="text" id="deleteCookieName" placeholder="Cookie Name"><br><br>
+            
+            <button class="btn danger" onclick="deleteCookie()">Delete Cookie</button>
+        </section>
+
+        <section class="box">
+            <h2>Current Cookies</h2>
+            <ul id="cookieList"></ul>
+        </section>
+    </div>
 
     <script src="cookies.js"></script>
 </body>
