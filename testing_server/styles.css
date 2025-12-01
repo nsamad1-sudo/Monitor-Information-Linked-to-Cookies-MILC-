@@ -8,12 +8,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.button-row {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
 button {
     padding: 8px 14px;
     border: 1px solid #aaa;
@@ -21,7 +15,7 @@ button {
     cursor: pointer;
 }
 
-#cookie-box {
+#cookieList {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ddd;
