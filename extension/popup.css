@@ -35,6 +35,35 @@ body {
   transition: background 0.2s;
 }
 
+.history-container {
+  margin-top: 8px;
+  background: #f0f0f0;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: none; 
+}
+
+.history-entry {
+  margin-bottom: 4px;
+  padding-left: 5px;
+  border-left: 2px solid #aaa;
+}
+
+.history-toggle {
+  cursor: pointer;
+  color: #0077cc;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.history-toggle:hover {
+  text-decoration: underline;
+}
+
+
 .delete-btn:hover {
   background: #c82333;
 }

@@ -42,7 +42,7 @@ async function renderCookies(cookies, hostname) {
     list.textContent = 'No cookies found for ' + hostname;
     return;
   }
-  
+
   // Get stored cookie data to check for changes
   const cookieKeys = cookies.map(c => `${c.name}_${c.domain}_${c.path}`);
   chrome.storage.local.get(cookieKeys, (storedData) => {
@@ -53,6 +53,17 @@ async function renderCookies(cookies, hostname) {
       
       const element = document.createElement('div');
       element.className = 'cookie';
+
+      let historyHTML = '';
+      if (stored && stored.history && stored.history.length > 0) {
+        historyHTML = stored.history.map(entry => {
+          const oldVal = entry.oldValue ?? '—';
+          const newVal = entry.newValue ?? c.value;
+          return `<div class="history-entry">Old: <code>${oldVal}</code> → New: <code>${newVal}</code> • ${new Date(entry.timestamp).toLocaleString()}</div>`;
+        }).join('');
+      }
+
+
       element.innerHTML = `
         <div class="cookie-header">
           <div>
@@ -62,7 +73,8 @@ async function renderCookies(cookies, hostname) {
           <button class="delete-btn" data-cookie='${JSON.stringify(c)}'>Delete</button>
         </div>
         <div class="meta">${c.domain} ${c.path} • Expires: ${formatExpireDate(c)} • ${c.httpOnly? 'HttpOnly':''} ${c.secure? 'Secure':''} ${c.sameSite||''}</div>
-      `;
+        ${historyHTML ? `<div class="history-toggle">Show/Hide History</div><div class="history-container">${historyHTML}</div>` : ''}
+        `;
       
       //delete button listener
       const deleteBtn = element.querySelector('.delete-btn');
@@ -70,6 +82,15 @@ async function renderCookies(cookies, hostname) {
         deleteCookie(c, false);
       });
       
+      // history toggle listener
+      const toggleBtn = element.querySelector('.history-toggle');
+      if (toggleBtn) {
+        const container = element.querySelector('.history-container');
+        toggleBtn.addEventListener('click', () => {
+          container.style.display = container.style.display === 'none' ? 'block' : 'none';
+        });
+      }
+
       list.appendChild(element);
     });
   });

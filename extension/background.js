@@ -12,11 +12,21 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
     const storedData = result[cookieKey];
     
     if (storedData && storedData.currentValue !== cookie.value) {
-      //store old value
+      //store old value, update history 
+
+      const history = storedData.history || [];
+      
+      history.push({
+        oldValue: storedData.currentValue,
+        newValue: cookie.value,
+        timestamp: Date.now()
+      })
+
       chrome.storage.local.set({
         [cookieKey]: {
           oldValue: storedData.currentValue,
           currentValue: cookie.value,
+          history: history,
           timestamp: Date.now()
         }
       });
@@ -25,6 +35,12 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
       chrome.storage.local.set({
         [cookieKey]: {
           currentValue: cookie.value,
+          history: [
+            {
+              newValue: cookie.value,
+              timestamp: Date.now()
+            }
+          ],
           timestamp: Date.now()
         }
       });
